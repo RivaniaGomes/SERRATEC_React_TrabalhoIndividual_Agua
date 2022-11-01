@@ -1,6 +1,7 @@
 .header{
-  color: aliceblue;
+  color: linear-gradient(to top aliceblue, white);
   display: flex;
   justify-content: center;
-  
+  text-transform: uppercase;
+  background: linear-gradient(to bottom,#104E8B, #1E90FF, #4169E1, #1E90FF);
 }

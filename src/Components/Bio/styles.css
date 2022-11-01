@@ -1,31 +1,39 @@
-.bio {
-  background-color: linear-gradient(to bottom, blue, white);
-}
-
-.titulo {
-}
-
-.sub-titulo {
-}
-
-.bio-ml-meta {
-}
-
-.bio-acompanhe {
-}
-
-.bio-desempenho {
-}
-
-.bio-inserir {
-}
-
-.bio-desempenho {
-}
-
-.bio-retorno {
+body{
+  background: linear-gradient(to top right, #bfeefd,white, white, #bde4fa);
 }
 
 li {
   list-style-type: none;
+}
+div {
+  text-align: center;
+}
+
+h3, p {
+  white-space: pre-line;
+}
+
+.titulo {
+  text-transform: uppercase;
+  word-spacing: 8px;
+}
+
+.sub-titulo {
+  word-spacing: 3px;
+}
+
+input[type="number"] {
+  border: 1px solid #999;
+}
+
+.bio-ml-meta {
+  background: linear-gradient(to top right, rgb(249, 252, 253), rgb(249, 252, 253),rgb(211, 238, 252) );
+}
+
+.bio-acompanhe {
+  background: linear-gradient(to top right, rgb(249, 252, 253), rgb(249, 252, 253),rgb(211, 238, 252) );
+}
+
+.bio-desempenho {
+  background: linear-gradient(to top right, rgb(249, 252, 253), rgb(249, 252, 253),rgb(211, 238, 252));
 }
