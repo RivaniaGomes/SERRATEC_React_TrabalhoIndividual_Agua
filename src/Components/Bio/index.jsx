@@ -82,7 +82,7 @@ function Bio() {
     return (
         <>
             <div className='bio container w-80 p-3 rounded'>
-                <h2 className='titulo w-80 p-3 text-center text-body'>Prenche as informações abaixo:</h2>
+                <h2 className='titulo w-80 p-3 text-center text-body'>Prencha as informações abaixo:</h2>
                 <div className='bio-ml-meta row align-items-center shadow-lg p-3 mb-5 rounded w-80 p-3'>
                     <div className='col-sm w-80 p-3 align-items-center'>
                         <h3 className='col-sm text-center text-black-50 sub-titulo w-80 p-3 h3'>Quantos ml tem o copo utilizado:</h3>
