@@ -6,16 +6,40 @@ function Bio() {
     const [ml, setMl] = useState("")
     const [copo, setCopo] = useState(0)
     const [mensagem, setMensagem] = useState("")
+    const [gotas, setGotas] = useState([""])
+    const [historico, setHistorico] = useState([])
 
     function incluirCopos() {
-        setCopo(copo + 1)
+        if (ml != "" && ml != 0) {
+            setCopo(copo + 1)
+            console.log("kk")
+        } else {
+            alert(`Preencha a quantidade de ml do seu copo!`)
+        }
     }
 
+    const criarGotas = () => {
+        if (ml != 0 && ml != "") {
+            console.log("antes  ", ml)
+            setGotas([...gotas, "💧 "])
+            console.log("depois  ", ml)
+        }
+    }
+
+    function gerarHistorico() {
+        if (ml != "" && ml != 0) {
+            let data = new Date().toString();
+            setHistorico([...historico, data])
+        }
+    }
     function funcoesInserir() {
         incluirCopos();
+        criarGotas();
+        gerarHistorico();
     }
 
     const conferirMeta = () => {
+
         if (copo < meta) {
             setMensagem(`Você bebeu apenas ${copo} copos de água!`)
         } else if (meta < copo) {
@@ -25,28 +49,37 @@ function Bio() {
         }
     };
 
+    const conferencia = () => {
+        conferirMeta();
+        gerarHistorico();
+    }
+
     function resetCopo() {
-        setCopo(copo - copo)
+        setCopo(0)
     }
 
     function resetMl() {
-        setMl(ml == "")
+        setMl("")
     }
 
     function resetMeta() {
-        setMeta(meta == "")
+        setMeta("")
     }
 
     function resetMensagem() {
-        setMensagem(`A quantidade ideal de água consumida por dia pode variar entre 25 a 40 ml.`)
+        setMensagem(`A quantidade ideal de água consumida por kg pode variar entre 25 a 40 ml.`)
     }
 
+    function resetGotas() {
+        setGotas([""])
+    }
 
     function funcoesReset() {
         resetCopo();
         resetMl();
         resetMeta();
         resetMensagem();
+        resetGotas();
     }
 
     return (
@@ -59,6 +92,7 @@ function Bio() {
                         type="number"
                         placeholder="DIGITE QUANTOS ML"
                         value={ml}
+                        min="0"
                         onChange={(e) => setMl(e.target.value)}
                     />
                 </div>
@@ -68,31 +102,35 @@ function Bio() {
                         type="number"
                         placeholder="DIGITE SUA META"
                         value={meta}
+                        min="0"
                         onChange={(e) => setMeta(e.target.value)}
                     />
                 </div>
             </div>
-            <h2 className='titulo w-80 p-3 text-center'>Acompanheu sua evolução:</h2>
+            <h2 className='titulo w-80 p-3 text-center'>Acompanhe sua evolução:</h2>
             <div className='bio-acompanhe row align-items-center shadow-lg p-3 mb-5 rounded w-80 p-3'>
                 <div className='col-6-sm bio-evolucao w-80 p-3'>
                     <div className='col-sm w-80 p-3'>
                         <h3 className='align-items-stretch w-80 p-3 text-center'>
-                            Até o momento foi consumido {ml * copo}ml de água!
+                            Até o momento foi consumido <span>{ml * copo}</span>ml de água!
                         </h3>
                     </div>
                     <div className='col-sm w-80 p-3'>
                         <h3 className='align-items-stretch w-80 p-3 text-center'>
-                            Para atingir sua meta precisa beber {ml * meta}ml de água!
+                            Para atingir sua meta precisa beber<span> {ml * meta}</span>ml de água!
                         </h3>
                     </div>
                 </div>
                 <div className='col-sm bio-inserir align-items-center w-80 p-3'>
                     <div className='col-sm w-80 p-3'>
                         <p>
-                            <button className='btn btn-primary btn-lg btn-block text-white w-80 p-3 align-items-center text-center'onClick={funcoesInserir}>ADICIONE 1 COPO</button>
+                            {gotas.map(criarGotas => { return "💧 " })}
                         </p>
                         <p>
-                            <button className='btn btn-primary btn-lg btn-block text-white w-80 p-3 align-items-center text-center'onClick={funcoesReset}>ZERE A CONTAGEM</button>
+                            <button className='btn btn-primary btn-lg btn-block text-white w-80 p-3 align-items-center text-center' onClick={funcoesInserir}>ADICIONE 1 COPO</button>
+                        </p>
+                        <p>
+                            <button className='btn btn-primary btn-lg btn-block text-white w-80 p-3 align-items-center text-center' onClick={funcoesReset}>ZERE A CONTAGEM</button>
                         </p>
                     </div>
                 </div>
@@ -109,8 +147,11 @@ function Bio() {
                 <div className='col-sm bio-conferir align-items-center w-80 p-3'>
                     <div className='col-sm w-80 p-3'>
                         <p>
-                            <button className='btn btn-primary btn-lg btn-block text-white w-80 p-3 text-center' onClick={conferirMeta}>CLIQUE E CONFIRA</button>
+                            <button className='btn btn-primary btn-lg btn-block text-white w-80 p-3 text-center' onClick={conferencia}>CLIQUE E CONFIRA</button>
                         </p>
+                    </div>
+                    <div className='col-sm w-80 p-3'>
+                        <ul>{historico.map(histo => <li key={histo}> {histo} </li>)}</ul>
                     </div>
                 </div>
             </div>
