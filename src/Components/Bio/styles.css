@@ -1,36 +1,31 @@
-.bio{
-background-color: linear-gradient(to bottom, blue, white);
+.bio {
+  background-color: linear-gradient(to bottom, blue, white);
 }
 
-.titulo{
-
+.titulo {
 }
 
-.sub-titulo{
-
+.sub-titulo {
 }
 
-.bio-ml-meta{
-
+.bio-ml-meta {
 }
 
-.bio-acompanhe{
-
+.bio-acompanhe {
 }
 
-.bio-desempenho{
-
+.bio-desempenho {
 }
 
-.bio-inserir{
-
+.bio-inserir {
 }
 
-.bio-desempenho{
-
+.bio-desempenho {
 }
 
-.bio-retorno{
-
+.bio-retorno {
 }
 
+li {
+  list-style-type: none;
+}
