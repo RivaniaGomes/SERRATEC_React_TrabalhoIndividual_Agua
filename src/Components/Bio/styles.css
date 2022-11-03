@@ -21,7 +21,7 @@ h3, p {
 .sub-titulo {
   word-spacing: 3px;
 }
-
+/* excluir */
 input[type="number"] {
   border: 1px solid #999;
 }

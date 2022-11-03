@@ -1,5 +1,7 @@
 import './styles.css'
 import { useState } from 'react'
+import AddWatter from './../AddWater/index';
+import Button from './../Button/index';
 
 function Bio() {
     const [meta, setMeta] = useState('');
@@ -79,8 +81,34 @@ function Bio() {
         resetHistorico();
     };
 
+    const [tasks, setTasks] = useState([
+        {
+            id: '1',
+            title: 'Estudar Programação',
+            completed: false,
+        },
+        {
+            id: '2',
+            title: 'Ler livros',
+            completed: true,
+        },
+    ]);
+
+    const handleWatterAddition = (taskTitle) => {
+        const newTasks = [
+            ...tasks,
+            {
+                title: taskTitle,
+                id: Math.random(10),
+                completed: false,
+            },
+        ];
+        setTasks(newTasks);
+    };
+
     return (
         <>
+            {/* <AddWatter handleWatterAddition={handleWatterAddition} /> */}
             <div className='bio container w-80 p-3 rounded'>
                 <h2 className='titulo w-80 p-3 text-center text-body'>Prencha as informações abaixo:</h2>
                 <div className='bio-ml-meta row align-items-center shadow-lg p-3 mb-5 rounded w-80 p-3'>
@@ -125,10 +153,10 @@ function Bio() {
                                 {gotas.map(criarGotas => { return '💧 ' })}
                             </p>
                             <p>
-                                <button className='btn btn-primary btn-lg btn-block text-white w-80 p-3 align-items-center text-center' onClick={funcoesInserir}>ADICIONE 1 COPO</button>
+                                <Button onClick={funcoesInserir}>ADICIONE 1 COPO</Button>
                             </p>
                             <p>
-                                <button className='btn btn-primary btn-lg btn-block text-white w-80 p-3 align-items-center text-center' onClick={funcoesReset}>ZERE A CONTAGEM</button>
+                                <Button onClick={funcoesReset}>ZERE A CONTAGEM</Button>
                             </p>
                         </div>
                     </div>
@@ -148,7 +176,7 @@ function Bio() {
                         <div className='col-sm bio-conferir align-items-center w-100 p3'>
                             <div className='col-sm w-80 p-3'>
                                 <p>
-                                    <button className='btn btn-primary btn-lg btn-block text-white w-100 p-3 text-center' onClick={conferirMeta}>CLIQUE E CONFIRA</button>
+                                    <Button onClick={conferirMeta}>CLIQUE E CONFIRA</Button>
                                 </p>
                             </div>
                             <div className='col-sm w-80 p-3'>
