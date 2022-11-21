@@ -20,7 +20,6 @@ const AddWatter = ({ handleWatterAddition }) => {
                 value={inputData}
                 className="col-sm align-items-center w-80 p-3 text-center text-primary h5"
                 type="text" />
-            ;
             <div className="add-task-button-container">
                 <Button onClick={handleAddWatterClick}>Adicionar</Button>
             </div>
